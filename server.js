@@ -4,10 +4,10 @@ const cors = require('cors');
 require('dotenv').config();
 
 const app = express();
-app.use(cors());
-app.use(express.json());
+app.use(cors()); // Enable CORS for all routes
+app.use(express.json()); // Parse JSON request bodies
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000; // Define the port to run the server
 
 // MongoDB connection
 mongoose.connect(process.env.MONGODB_URI, {
@@ -17,15 +17,15 @@ mongoose.connect(process.env.MONGODB_URI, {
 
 // Basic route
 app.get('/', (req, res) => {
-    res.send('Welcome to the Agile Sprint Tracker API!');
+    res.send('Welcome to the Agile Sprint Tracker API!'); // Send welcome message
 });
 
 // Error handling middleware
 app.use((err, req, res, next) => {
-    console.error(err.stack);
-    res.status(500).send('Something went wrong!');
+    console.error(err.stack); // Log the error stack to console
+    res.status(500).send('Something went wrong!'); // Send error response
 });
 
 app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+    console.log(`Server is running on port ${PORT}`); // Log server start message
 });
