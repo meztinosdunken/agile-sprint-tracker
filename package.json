@@ -18,5 +18,8 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
+  },
+  "comments": {
+    "projectPurpose": "This project is designed to assist teams in managing and tracking their sprint cycles effectively through a web interface."
   }
 }
